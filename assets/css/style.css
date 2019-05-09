@@ -1,0 +1,36 @@
+body {
+    background-image: url("../images/background.jpg");
+}
+
+p{
+    font-weight: bold; 
+    font-size:23px;
+}
+
+.title {
+    text-align:center;
+    font-weight:bold;
+    border: 1px solid black;
+    padding: 1px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 25px;
+}
+
+.timer {
+    text-align:center;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 1px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.question {
+    text-align:center;
+    border: 1px solid black;
+    line-height: 25px;
+    padding: 1px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 15px;
+
+}
+
