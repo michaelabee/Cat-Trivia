@@ -121,7 +121,14 @@ var questions = [
 		  	}	
 		});
         return output;
-	}
+    }
+    
+    var replacer = function (){
+        $('.questions').replaceWith('<img src = "https://media.giphy.com/media/2SYc7mttUnWWaqvWz8/giphy.gif"/>');
+       //how do i change the attribute here to make the image centered? tried $('img').attr("margin-left","100px");
+        $('.my-button').remove();
+    }
+
     var score = [];
 	var gradePage = function(){
 		console.log("gradePage");
@@ -131,7 +138,7 @@ var questions = [
 			score += parseInt(gradeQuestion($(this)));
         })
         $('.timer').text("You guessed " + score + " cat facts correct!");
-        // $('.questions').replace('<img src = "https://media.giphy.com/media/2SYc7mttUnWWaqvWz8/giphy.gif"/>')
+        replacer();
         stopTimer();
         //could add a "play again" button here, connect it to a function that starts the page again?
 		console.log(score);
