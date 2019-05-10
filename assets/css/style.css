@@ -24,13 +24,11 @@ p{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.question {
-    text-align:center;
-    border: 1px solid black;
-    line-height: 25px;
+.questions {
+    text-align:left;
+    line-height: 20px;
     padding: 1px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: 15px;
-
+    
 }
 

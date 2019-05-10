@@ -4,28 +4,12 @@ var Correct = 0;
 var Incorrect = 0;
 var unanswered = 0;
 
+var timer = 30;
 
-var answer= $('#answer');
-console.log(answer);
-// for (var i=0; i<answer.length; i++) {
-//     console.log(answer[i]);
-// }
 
-var timer = 31;
-var interval = setInterval(function() {
-    timer--;
-    $('#time-remaining').text(timer);
-    
-    if (timer === 0) {
-        gradePage();
-        timer = 0;
-    }
-}, 1000);
-
-setTimeout(function() {
-    alert("Time's Up!"); 
-},31000);
-
+// setTimeout(function() {
+//     alert("Time's Up!");
+// },30000);
 
 //HAYDENS LIVE CODE HERE 
 
@@ -53,7 +37,7 @@ var questions = [
         question:"Which of the following plants is NOT toxic to cats?",
         a:"Boston Fern",
         b:"Jade",
-        c:"ALoe Vera",
+        c:"Aloe Vera",
         d:"Easter Lily",
         name:"q3",
         correct:"a",
@@ -82,15 +66,7 @@ var questions = [
 	];
 
 	var generateQuestion = function(obj){
-
-		//We want to get here:
-		// <form>
-		// <h2>Question 1:</h2>
-		// <div><input type="radio" name="gender" value="male" checked>Answer 1</div> 
-		// <input type="radio" name="gender" value="female">Answer 2
-		// <input type="radio" name="gender" value="other">Answer 3
-		// </form> 
-
+// fills in questions on page from our "questions" array
 		var form = $("<form>");
 		var question = $('<h2>').text(obj.question);
 		var aDiv = $('<div>');
@@ -134,43 +110,55 @@ var questions = [
 		var output = 0;
 		obj.find('input').each(function(){
 		 	if($(this).is(':checked')) {
-		 		console.log("FOUND CHECKED");
+		 	
 		  		if($(this).attr('correct') === "true"){
-		  			console.log('returning + 1');
-		  			output =  1;//you did it!
+		  			
+		  			output =  1;
 		  		} else{
-		  			console.log('returning - 1');
-		  			output= -1;//WRONG
+		  			
+		  			output= 0;
 		  		}
 		  	}	
 		});
-		return output;
+        return output;
 	}
-
+    var score = [];
 	var gradePage = function(){
 		console.log("gradePage");
 		var score = 0;
 		$('form').each(function(){
 			console.log("adding ",parseInt(gradeQuestion($(this))), " to score");
 			score += parseInt(gradeQuestion($(this)));
-		})
+        })
+        $('.timer').text("You guessed " + score + " cat facts correct!");
+        // $('.questions').replace('<img src = "https://media.giphy.com/media/2SYc7mttUnWWaqvWz8/giphy.gif"/>')
+        stopTimer();
+        //could add a "play again" button here, connect it to a function that starts the page again?
 		console.log(score);
         return score;
-    
-	}
+            
+    }
+
+    var interval = setInterval(function() {
+        timer--;
+        $('#time-remaining').text(timer);
+        
+        if (timer === 0) {
+            gradePage();
+        }
+    }, 1000);
+
+    var stopTimer = function() {
+        clearTimeout(interval);
+    };
 
     generateQuestion(questions[0]);
     generateQuestion(questions[1]);
     generateQuestion(questions[2]);
     generateQuestion(questions[3]);
     generateQuestion(questions[4]);
-	$('.my-button').click(gradePage);
-
-
-
-
-
-
+    $('.my-button').click(gradePage);
+    
 
 })
 
