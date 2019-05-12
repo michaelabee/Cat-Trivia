@@ -4,12 +4,12 @@ var Correct = 0;
 var Incorrect = 0;
 var unanswered = 0;
 
-var timer = 30;
+var timer = 60;
 
 
 // setTimeout(function() {
 //     alert("Time's Up!");
-// },30000);
+// },60000);
 
 //HAYDENS LIVE CODE HERE 
 
@@ -49,7 +49,7 @@ var questions = [
         b:"Agression",
         c:"Excitement",
         d:"Anger",
-        name:"q3",
+        name:"q4",
         correct:"a",
 
     },
@@ -59,7 +59,7 @@ var questions = [
         b:"40 pounds",
         c:"47 pounds",
         d:"55 pounds",
-        name:"q3",
+        name:"q5",
         correct:"c",
 
     }
